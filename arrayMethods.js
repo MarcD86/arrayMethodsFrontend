@@ -64,12 +64,13 @@ console.log(names)
 //   { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 }
 // ]
 
-function compareYear(a, b) {
+inventors.sort((a, b) => {
 
   return a.year - b.year;
-}
 
-console.log(inventors.sort(compareYear))
+});
+
+console.log(inventors)
 
 
 
@@ -90,10 +91,22 @@ console.log(inventors.sort(compareYear))
 // { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 }
 // ]
 
+inventors.sort((a, b) => {
 
-????????????
+  return (b.passed - b.year) - (a.passed - a.year);
+
+});
+
+console.log(inventors)
 
 // 6. Vind de gegevens over de uitvinder wiens achternaam 'Edison' is.
 // Verwachte uitkomst: { first: 'Thomas', last: 'Edison', year: 1847, passed: 1931 }
 
-?????????????
+const uitvinderEdison = inventors.find((inventor) => {
+
+  return inventor.last === "Edison";
+
+});
+
+console.log(uitvinderEdison);
+
