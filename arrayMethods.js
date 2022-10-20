@@ -19,17 +19,33 @@ const inventors = [
 // Verwachte uitkomst:
 // [{ first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 }, { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 }]
 
+// const yearOf16 = inventors.filter((inventor) => {
+//
+//   if(inventor.year >= 1500 && inventor.year <= 1600) {
+//     return true;
+//   }
+//   return false;
+//
+// } );
+//
+// console.log(yearOf16)
 
 
 // 2. Maak een array met daarin alle geboortejaren van de uitvinders
 // Verwachte uitkomst: [1879, 1643, 1564, 1867, 1571, 1473, 1858, 1898, 1815, 1855, 1878, 1847];
 
-
+// const years = inventors.map((inventor) => {
+//   return inventor.year;
+//   });
+// console.log(years)
 
 // 3. Maak een array met daarin alle volledige namen van de uitvinders (dus voor- en achternaam als één string)
 // Verwachte uitkomst: [ 'Albert Einstein', 'Isaac Newton', 'Galileo Galilei', 'Marie Curie', 'Johannes Kepler', 'Nicolaus Copernicus', 'Max Planck', 'Katherine Blodgett', 'Ada Lovelace', 'Sarah E. Goode', 'Lise Meitner', 'Thomas Edison']
 
-
+const names = inventors.map((inventor) => {
+  return inventor.first + " " + inventor.last;
+})
+console.log(names)
 
 // 4. Sorteer de uitvinders op geboortejaar, oplopend van oudste naar jongste uitvinder
 // Verwachte uitkomst:
@@ -47,6 +63,14 @@ const inventors = [
 //   { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
 //   { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 }
 // ]
+
+inventors.sort((a, b) => {
+
+  return a.year - b.year;
+
+});
+
+console.log(inventors)
 
 
 
@@ -67,8 +91,22 @@ const inventors = [
 // { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 }
 // ]
 
+inventors.sort((a, b) => {
 
+  return (b.passed - b.year) - (a.passed - a.year);
 
+});
+
+console.log(inventors)
 
 // 6. Vind de gegevens over de uitvinder wiens achternaam 'Edison' is.
 // Verwachte uitkomst: { first: 'Thomas', last: 'Edison', year: 1847, passed: 1931 }
+
+const uitvinderEdison = inventors.find((inventor) => {
+
+  return inventor.last === "Edison";
+
+});
+
+console.log(uitvinderEdison);
+
